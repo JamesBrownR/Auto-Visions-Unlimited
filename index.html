@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auto Visions Unlimited – Broken Arrow, OK</title>
+  <meta name="description" content="Auto Visions Unlimited in Broken Arrow, OK. Custom auto paint, detailing, and bodywork. Open Mon–Fri 8am–4pm. Call now for a free quote." />
+
+  <!-- Color scheme: red + black with high contrast -->
+  <meta name="theme-color" content="#c1121f" />
+
+  <style>
+    :root{
+      --red:#c1121f; /* primary red */
+      --red-dark:#8f0d18;
+      --black:#111111;
+      --gray-900:#1a1a1a;
+      --gray-800:#2a2a2a;
+      --gray-200:#e7e7e7;
+      --gray-100:#f5f5f5;
+      --white:#ffffff;
+      --maxw:1200px;
+      --radius:16px;
+      --shadow:0 10px 25px rgba(0,0,0,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      color:var(--black);
+      background:var(--white);
+      line-height:1.5;
+    }
+    a{color:var(--red); text-decoration:none}
+    a:hover{color:var(--red-dark); text-decoration:underline}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+    /* Top bar */
+    .topbar{
+      background:var(--black);
+      color:var(--white);
+      font-weight:600;
+      font-size:.95rem;
+    }
+    .topbar .inner{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      padding:8px 0;
+    }
+    .topbar a{color:var(--white); text-decoration:none}
+    .topbar .call{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px;
+      background:var(--red);
+      box-shadow:var(--shadow);
+    }
+    .topbar .call:hover{background:var(--red-dark)}
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;
+    }
+    .brand .logo{
+      width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--red), #ff3b3b);
+      display:grid; place-items:center; color:var(--white); font-weight:900; box-shadow:var(--shadow)
+    }
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(180deg, var(--gray-100), #fff);
+      border-bottom:1px solid var(--gray-200);
+    }
+    .hero .wrap{display:grid; grid-template-columns:1.3fr 1fr; gap:24px; padding:40px 0}
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--black); color:#fff; font-size:.8rem}
+    h1{font-size:clamp(28px, 4.2vw, 44px); margin:12px 0 10px}
+    .sub{font-size:1.05rem; color:#333; max-width:60ch}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 18px; border-radius:12px; font-weight:700; border:2px solid transparent; cursor:pointer}
+    .btn-primary{background:var(--red); color:#fff}
+    .btn-primary:hover{background:var(--red-dark)}
+    .btn-outline{background:#fff; color:var(--red); border-color:var(--red)}
+    .btn-outline:hover{background:#fff0f0}
+
+    /* Quick facts cards */
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
+    .card{background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); padding:14px; box-shadow:var(--shadow)}
+    .k{font-weight:800; font-size:1.1rem}
+
+    /* Section */
+    section{padding:40px 0}
+    section h2{font-size:clamp(22px, 3.5vw, 32px); margin:0 0 12px}
+    .muted{color:#444}
+
+    /* Gallery */
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .imgbox{position:relative; overflow:hidden; border-radius:12px; border:1px solid var(--gray-200)}
+    .imgbox img{display:block; width:100%; height:240px; object-fit:cover; transition:transform .4s ease}
+    .imgbox:hover img{transform:scale(1.03)}
+
+    /* Reviews */
+    .reviews-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:20px}
+    .stars{display:inline-flex; gap:2px; vertical-align:middle}
+    .star{width:18px; height:18px; display:inline-block; background:conic-gradient(#ffcc00 0 0); mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') center/contain no-repeat;}
+    .star.off{filter:grayscale(1) brightness(.8)}
+    .rev{background:#fff; border:1px solid var(--gray-200); border-radius:12px; padding:14px; box-shadow:var(--shadow)}
+    .rev .head{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px}
+    .rev .name{font-weight:800}
+    .showmore{display:block; width:100%; margin-top:12px}
+    .avg{font-size:2.4rem; font-weight:900}
+    .pill{display:inline-block; padding:4px 10px; border-radius:999px; background:#fff; border:1px solid var(--gray-200)}
+
+    /* Contact + map */
+    .contact-wrap{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    form{background:#fff; border:1px solid var(--gray-200); border-radius:12px; padding:16px; box-shadow:var(--shadow)}
+    label{font-weight:700; font-size:.95rem}
+    input, textarea{
+      width:100%; padding:12px; border-radius:10px; border:1px solid var(--gray-200); background:#fff; color:var(--black)
+    }
+    textarea{min-height:140px; resize:vertical}
+    .help{font-size:.9rem; color:#555}
+    iframe.map{width:100%; height:100%; min-height:360px; border:1px solid var(--gray-200); border-radius:12px}
+
+    /* Hours & footer */
+    .info-cards{display:grid; grid-template-columns:2fr 1.2fr; gap:20px}
+    .hours{background:#fff; border:1px solid var(--gray-200); border-radius:12px; padding:16px; box-shadow:var(--shadow)}
+    .hours table{width:100%; border-collapse:collapse; font-size:.98rem}
+    .hours th, .hours td{padding:8px 6px; text-align:left; border-bottom:1px solid var(--gray-200)}
+    footer{background:var(--black); color:#fff; padding:22px 0; margin-top:30px}
+    footer a{color:#fff; text-decoration:underline}
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero .wrap{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .reviews-wrap{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .contact-wrap{grid-template-columns:1fr}
+      .info-cards{grid-template-columns:1fr}
+    }
+    /* Sticky mobile call bar */
+    .sticky-call{
+      position:fixed; inset:auto 0 0 0; background:var(--red); color:#fff; display:none;
+      padding:12px 16px; z-index:50; box-shadow:0 -8px 24px rgba(0,0,0,.18)
+    }
+    .sticky-call a{color:#fff; text-decoration:none; font-weight:900; letter-spacing:.3px}
+    .sticky-call .row{display:flex; align-items:center; justify-content:space-between}
+    @media (max-width:760px){ .sticky-call{display:block} }
+  </style>
+</head>
+
+<body>
+  <!-- Top contact strip -->
+  <div class="topbar" aria-label="Top contact bar">
+    <div class="container inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">AV</div>
+        <div>Auto Visions Unlimited</div>
+      </div>
+      <div>
+        <a class="call" href="tel:+19189490241" aria-label="Call Auto Visions Unlimited now">
+          📞 Call Now: (918) 949-0241
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="badge">Broken Arrow, OK • Plus Code: 259M+F7</span>
+        <h1>Custom Auto Paint & Body • Show-Quality Results</h1>
+        <p class="sub">Flawless paintwork, detailing, and body services done right the first time. Trusted by local drivers and enthusiasts — average rating <strong>4.6</strong> out of 5.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="tel:+19189490241">📞 Call (918) 949-0241</a>
+          <!-- TODO: Replace YOUR_LOCATION_ID with your actual Square location/booking ID -->
+          <a class="btn btn-outline" href="https://squareup.com/appointments/book/YOUR_LOCATION_ID" target="_blank" rel="noopener">📅 Book with Square</a>
+          <a class="btn btn-outline" href="mailto:AutoVisionsUnlimited@yahoo.com">✉️ Email Us</a>
+          <a class="btn btn-outline" href="http://facebook.com/autovisionsunlimited" target="_blank" rel="noopener">👍 Facebook</a>
+        </div>
+
+        <div class="cards" role="list">
+          <div class="card" role="listitem"><div class="k">Hours</div>Mon–Fri 8 AM–4 PM</div>
+          <div class="card" role="listitem"><div class="k">Phone</div><a href="tel:+19189490241">(918) 949-0241</a></div>
+          <div class="card" role="listitem"><div class="k">Email</div><a href="mailto:AutoVisionsUnlimited@yahoo.com">AutoVisionsUnlimited@yahoo.com</a></div>
+        </div>
+      </div>
+
+      <!-- Quick map card -->
+      <div class="card" aria-label="Map snapshot">
+        <div class="k">Find Us</div>
+        <p class="muted">Broken Arrow, Oklahoma • Plus Code <strong>259M+F7</strong></p>
+        <iframe class="map" title="Google map to Auto Visions Unlimited"
+          src="https://www.google.com/maps/embed?pb=!4v1710000000!6m8!1m7!1s0x87b68fdc463cd6f9:0xee58e187f2ea3fff!2m2!1d36.018749!2d-95.8168326!3f0!4f0!5f0.7820865974627469"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- If you prefer the full place page, you can use your link directly:
+             https://www.google.com/maps/place/Auto+Visions+Unlimited/... -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <h2>Recent Work</h2>
+      <p class="muted">A few before/after moments and close-ups from the shop.</p>
+      <div class="grid-3">
+        <!-- Uses your exact filenames -->
+        <div class="imgbox"><img src="autounlimited jakeauto1.png" alt="Custom auto paint example 1"></div>
+        <div class="imgbox"><img src="autounlimited jakeauto2.png" alt="Custom auto paint example 2"></div>
+        <div class="imgbox"><img src="autounlimited jakeauto3.png" alt="Custom auto paint example 3"></div>
+        <div class="imgbox"><img src="autounlimited jakeauto4.png" alt="Custom auto paint example 4"></div>
+        <div class="imgbox"><img src="autounlimited jakeauto5.png" alt="Custom auto paint example 5"></div>
+        <div class="imgbox"><img src="autounlimited jakeauto6.png" alt="Custom auto paint example 6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <div class="container">
+      <h2>Customer Reviews</h2>
+      <div class="reviews-wrap">
+        <!-- Left: reviews list -->
+        <div>
+          <div id="reviews-list" aria-live="polite" aria-busy="false"></div>
+          <button id="show-more" class="btn btn-outline showmore" style="display:none">Show more</button>
+          <p class="help">Note: Blank five-star items are intentionally “empty reviews” per customer request.</p>
+        </div>
+        <!-- Right: summary -->
+        <aside class="card">
+          <div class="k">Overall Rating</div>
+          <div style="display:flex; align-items:center; gap:12px; margin:8px 0 6px">
+            <div class="avg" id="avg-score">4.6</div>
+            <div class="stars" id="avg-stars" aria-hidden="true"></div>
+          </div>
+          <div class="muted"><span id="total-reviews">—</span> total reviews</div>
+          <hr style="border:none; border-top:1px solid var(--gray-200); margin:12px 0">
+          <div class="pill">All reviews are 5 ★ except Giovana Flores (1 ★)</div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact + Map -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact & Location</h2>
+      <div class="contact-wrap">
+        <!-- Form -->
+        <form id="contact-form" aria-label="Contact form">
+          <div style="display:grid; gap:12px">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" required placeholder="Your full name" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(###) ###-####" />
+            </div>
+            <div>
+              <label for="message">How can we help?</label>
+              <textarea id="message" name="message" required placeholder="Tell us about your vehicle, paint, or bodywork needs."></textarea>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <a class="btn btn-outline" href="tel:+19189490241">Or Call (918) 949-0241</a>
+            </div>
+            <p class="help">
+              <!-- OPTION A (recommended on GitHub Pages):
+                   Use a form backend service like Formspree. Replace the fetch URL below with your endpoint.
+                   OPTION B:
+                   Remove JS and change form action to `mailto:AutoVisionsUnlimited@yahoo.com` (opens the user’s email client). -->
+              We’ll reply within business hours (Mon–Fri, 8 AM–4 PM).
+            </p>
+          </div>
+        </form>
+
+        <!-- Live map -->
+        <iframe class="map" title="Google Maps – Auto Visions Unlimited"
+          src="https://www.google.com/maps?q=Auto%20Visions%20Unlimited%20Broken%20Arrow&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info: hours + quick links -->
+  <section id="info">
+    <div class="container info-cards">
+      <div class="hours">
+        <h3 style="margin-top:0">Business Hours</h3>
+        <table aria-label="Business hours">
+          <tbody>
+            <tr><th>Friday</th><td>8 AM–4 PM</td></tr>
+            <tr><th>Saturday</th><td>Closed</td></tr>
+            <tr><th>Sunday</th><td>Closed</td></tr>
+            <tr><th>Monday (Labor Day)</th><td>8 AM–4 PM <span class="pill">Hours might differ</span></td></tr>
+            <tr><th>Tuesday</th><td>8 AM–4 PM</td></tr>
+            <tr><th>Wednesday</th><td>8 AM–4 PM</td></tr>
+            <tr><th>Thursday</th><td>8 AM–4 PM</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="k">Get in Touch</div>
+        <p class="muted">Auto Visions Unlimited<br>Broken Arrow, Oklahoma<br>Plus Code: 259M+F7</p>
+        <p><strong>Phone:</strong> <a href="tel:+19189490241">(918) 949-0241</a><br>
+           <strong>Email:</strong> <a href="mailto:AutoVisionsUnlimited@yahoo.com">AutoVisionsUnlimited@yahoo.com</a><br>
+           <strong>Facebook:</strong> <a href="http://facebook.com/autovisionsunlimited" target="_blank" rel="noopener">facebook.com/autovisionsunlimited</a></p>
+        <!-- TODO: Replace YOUR_LOCATION_ID in this Square link -->
+        <p><a class="btn btn-primary" href="https://squareup.com/appointments/book/YOUR_LOCATION_ID" target="_blank" rel="noopener">📅 Schedule via Square</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div>© <span id="year"></span> Auto Visions Unlimited • Broken Arrow, OK</div>
+      <div>Made with ❤️ in Oklahoma</div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile call bar -->
+  <div class="sticky-call" role="region" aria-label="Quick call">
+    <div class="container row">
+      <div><strong>Auto Visions Unlimited</strong> • Mon–Fri 8 AM–4 PM</div>
+      <a href="tel:+19189490241">📞 Call (918) 949-0241</a>
+    </div>
+  </div>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ===========================
+       CONTACT FORM HANDLER
+       ===========================
+       OPTION A: Use a form backend like Formspree.
+       - Create a Formspree form and copy its endpoint URL.
+       - Replace YOUR_FORMSPREE_ENDPOINT below.
+       OPTION B: If you prefer a mailto link (no backend), comment out this JS and
+       set <form action="mailto:AutoVisionsUnlimited@yahoo.com" method="post" enctype="text/plain">
+    */
+    (function(){
+      const form = document.getElementById('contact-form');
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        try{
+          // TODO: Replace with your real endpoint:
+          const resp = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT', {
+            method:'POST',
+            headers:{'Accept':'application/json','Content-Type':'application/json'},
+            body: JSON.stringify(data)
+          });
+          if(resp.ok){
+            alert('Thanks! We’ll get back to you shortly.');
+            form.reset();
+          }else{
+            alert('There was a problem sending your message. Please call (918) 949-0241 or email us.');
+          }
+        }catch(err){
+          alert('Network error. Please call (918) 949-0241 or email us.');
+        }
+      });
+    })();
+
+    /* ===========================
+       REVIEWS
+       ===========================
+       Rules implemented:
+       - All reviews are 5★ except Giovana Flores (1★).
+       - “Empty five-star reviews” have no description (body is empty string).
+       - Show 6 initially, button reveals 6 more at a time.
+       - Button label displays how many remain (e.g., "Show 6 more (total 7)").
+       - Do not change user-provided review content. Paste exact text into body fields.
+    */
+
+    // TODO: PASTE YOUR REVIEWS EXACTLY as provided into the `body` fields.
+    // Do NOT alter the text you paste (we won't either).
+    // If a review should be “empty five-star”, leave body: "".
+    const REVIEWS = [
+      // Examples / placeholders — REPLACE body text with your exact content from the attachments.
+      // Keep "name" and "rating" accurate. Leave empty body "" for blank 5★ reviews.
+      { name: "Reviewer 1", rating: 5, body: "" },
+      { name: "Reviewer 2", rating: 5, body: "" },
+      { name: "Reviewer 3", rating: 5, body: "" },
+      { name: "Reviewer 4", rating: 5, body: "" },
+      { name: "Reviewer 5", rating: 5, body: "" },
+      { name: "Reviewer 6", rating: 5, body: "" },
+      { name: "Reviewer 7", rating: 5, body: "" },
+      { name: "Reviewer 8", rating: 5, body: "" },
+      { name: "Reviewer 9", rating: 5, body: "" },
+      // One-star exception:
+      { name: "Giovana Flores", rating: 1, body: "" },
+      // Continue listing every review you have; add as many as needed…
+      // { name: "Reviewer 10", rating: 5, body: "PASTE_REVIEW_TEXT_HERE" },
+      // { name: "Reviewer 11", rating: 5, body: "" },
+      // etc.
+    ];
+
+    // Compute and display average (fixed to 4.6 if you want to lock it)
+    function calcAverage(){
+      if(!REVIEWS.length) return 0;
+      const total = REVIEWS.reduce((a,r)=>a + (r.rating||0), 0);
+      return (total / REVIEWS.length);
+    }
+
+    function renderStars(container, rating){
+      container.innerHTML = '';
+      for(let i=1;i<=5;i++){
+        const s = document.createElement('span');
+        s.className = 'star' + (i <= rating ? '' : ' off');
+        container.appendChild(s);
+      }
+    }
+
+    (function initReviews(){
+      const listEl = document.getElementById('reviews-list');
+      const btn = document.getElementById('show-more');
+      const totalEl = document.getElementById('total-reviews');
+      const avgEl = document.getElementById('avg-score');
+      const avgStarsEl = document.getElementById('avg-stars');
+
+      // If you want to force the site to always show 4.6 regardless of added reviews, comment the next line:
+      const avg = Math.round(calcAverage()*10)/10 || 4.6;
+      avgEl.textContent = avg.toFixed(1);
+      renderStars(avgStarsEl, Math.round(avg));
+
+      totalEl.textContent = REVIEWS.length;
+
+      const PAGE = 6;
+      let shown = 0;
+
+      function makeReviewCard(r){
+        const wrap = document.createElement('div');
+        wrap.className = 'rev';
+        const head = document.createElement('div');
+        head.className = 'head';
+
+        const left = document.createElement('div');
+        const name = document.createElement('div'); name.className='name'; name.textContent=r.name;
+        const starWrap = document.createElement('div'); starWrap.className='stars'; renderStars(starWrap, r.rating);
+        left.appendChild(name); left.appendChild(starWrap);
+
+        const right = document.createElement('div'); right.className='pill'; right.textContent = r.rating + ' ★';
+
+        head.appendChild(left); head.appendChild(right);
+        wrap.appendChild(head);
+
+        // Body: if empty, do not show any text (empty five-star)
+        if(r.body && r.body.trim().length){
+          const body = document.createElement('div');
+          body.textContent = r.body; // IMPORTANT: we do not modify your text in any way.
+          wrap.appendChild(body);
+        }
+        return wrap;
+      }
+
+      function renderNextChunk(){
+        const slice = REVIEWS.slice(shown, shown + PAGE);
+        slice.forEach(r => listEl.appendChild(makeReviewCard(r)));
+        shown += slice.length;
+
+        const remaining = Math.max(REVIEWS.length - shown, 0);
+        if(remaining > 0){
+          btn.style.display = 'block';
+          const step = Math.min(PAGE, remaining);
+          btn.textContent = `Show ${step} more (total ${remaining})`;
+        }else{
+          btn.style.display = 'none';
+        }
+      }
+
+      btn.addEventListener('click', renderNextChunk);
+      renderNextChunk(); // initial 6
+    })();
+  </script>
+
+  <!-- LocalBusiness schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoBodyShop",
+    "name": "Auto Visions Unlimited",
+    "telephone": "+1-918-949-0241",
+    "email": "AutoVisionsUnlimited@yahoo.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Broken Arrow",
+      "addressRegion": "OK",
+      "addressCountry": "US"
+    },
+    "url": "https://jamesbrownr.github.io/Auto-Visions-Unlimited/",
+    "sameAs": [
+      "http://facebook.com/autovisionsunlimited"
+    ],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "16:00" }
+    ],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "REPLACE_WITH_ACTUAL_TOTAL" }
+  }
+  </script>
+</body>
+</html>
